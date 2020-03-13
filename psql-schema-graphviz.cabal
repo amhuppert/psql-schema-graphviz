@@ -1,0 +1,96 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 1009737c8936e9b98ec9076e4d07fe42ed564f1a0d715c21ab990c5939226bdc
+
+name:           psql-schema-graphviz
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/psql-schema-graphviz#readme>
+homepage:       https://github.com/amhuppert/psql-schema-graphviz#readme
+bug-reports:    https://github.com/amhuppert/psql-schema-graphviz/issues
+author:         Alex Huppert
+maintainer:     huppertam@gmail.com
+copyright:      2020 Alex Huppert
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/amhuppert/psql-schema-graphviz
+
+library
+  exposed-modules:
+      Lib
+      PostgresVis.Parse
+  other-modules:
+      Paths_psql_schema_graphviz
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , colour
+    , containers
+    , foldl
+    , hashable
+    , megaparsec
+    , palette
+    , parser-combinators
+    , prettyprinter
+    , protolude
+    , text
+    , vector
+  default-language: Haskell2010
+
+executable psql-viz
+  main-is: Main.hs
+  other-modules:
+      Paths_psql_schema_graphviz
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , colour
+    , containers
+    , foldl
+    , hashable
+    , megaparsec
+    , palette
+    , parser-combinators
+    , prettyprinter
+    , protolude
+    , psql-schema-graphviz
+    , text
+    , vector
+  default-language: Haskell2010
+
+test-suite psql-viz-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_psql_schema_graphviz
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , colour
+    , containers
+    , foldl
+    , hashable
+    , megaparsec
+    , palette
+    , parser-combinators
+    , prettyprinter
+    , protolude
+    , psql-schema-graphviz
+    , text
+    , vector
+  default-language: Haskell2010

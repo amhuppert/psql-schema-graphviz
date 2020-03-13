@@ -1,0 +1,59 @@
+name:                psql-schema-graphviz
+version:             0.1.0.0
+github:              "amhuppert/psql-schema-graphviz"
+license:             BSD3
+author:              "Alex Huppert"
+maintainer:          "huppertam@gmail.com"
+copyright:           "2020 Alex Huppert"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/psql-schema-graphviz#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+- containers
+- protolude
+- megaparsec
+- parser-combinators
+- foldl
+- prettyprinter
+- hashable
+- palette
+- colour
+- vector
+
+library:
+  source-dirs: src
+
+executables:
+  psql-viz:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - psql-schema-graphviz
+
+tests:
+  psql-viz-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - psql-schema-graphviz
